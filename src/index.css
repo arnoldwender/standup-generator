@@ -6,6 +6,8 @@
   box-sizing: border-box;
 }
 
+/* --- Animations --- */
+
 @keyframes scandown {
   0% { top: -5%; }
   100% { top: 105%; }
@@ -21,10 +23,12 @@
   50% { box-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
 }
 
+/* --- Title glow effect --- */
 .title-glow {
   text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
 }
 
+/* --- CRT scanlines overlay --- */
 .crt-scanlines {
   position: fixed;
   inset: 0;
@@ -39,6 +43,7 @@
   z-index: 50;
 }
 
+/* --- CRT vignette — darkened corners --- */
 .crt-vignette {
   position: fixed;
   inset: 0;
@@ -47,6 +52,7 @@
   z-index: 49;
 }
 
+/* --- CRT scan beam --- */
 .crt-beam {
   position: fixed;
   left: 0;
@@ -58,10 +64,12 @@
   pointer-events: none;
 }
 
+/* --- Card entrance animation --- */
 .standup-card {
   animation: fadein 0.4s ease;
 }
 
+/* --- Primary generate button with glow --- */
 .generate-btn {
   animation: pulse-glow 2s infinite;
   transition: all 0.2s;
@@ -72,6 +80,77 @@
   color: #000 !important;
 }
 
+.generate-btn:disabled {
+  animation: none;
+}
+
+/* --- Secondary action buttons --- */
 .cbtn:hover {
   background: rgba(0, 255, 255, 0.13) !important;
+}
+
+/* --- Buzzword density slider — custom styled range input --- */
+.buzzword-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 255, 255, 0.2),
+    rgba(0, 255, 255, 0.5),
+    rgba(255, 150, 0, 0.5),
+    rgba(255, 0, 0, 0.5)
+  );
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.buzzword-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00ffff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px rgba(0, 255, 255, 0.3);
+  transition: box-shadow 0.2s;
+}
+
+.buzzword-slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 15px #00ffff, 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+.buzzword-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00ffff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* --- Bingo cell hover effect --- */
+.bingo-cell:hover {
+  background: rgba(0, 255, 255, 0.08) !important;
+}
+
+/* --- Scrollbar styling for the dark theme --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.3);
 }
