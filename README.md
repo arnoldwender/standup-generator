@@ -2,7 +2,7 @@
 
 **Generate fake standup meeting updates that sound convincingly productive.**
 
-Built by [Arnold Wender](https://github.com/arnoldwender)
+Built by [Arnold Wender](https://arnoldwender.com)
 
 [:rocket: Live Demo](https://standup-generator.netlify.app)
 
