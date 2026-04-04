@@ -143,7 +143,7 @@ export default function App() {
         {/* --- Header --- */}
         <header className="text-center mb-8 border-b border-cyan-400/20 pb-6">
           <div className="text-[0.65rem] tracking-[6px] text-cyan-400/30 mb-2">
-            WENDER MEDIA AGILE PRODUCTIVITY SUITE
+            ARNOLD WENDER AGILE PRODUCTIVITY SUITE
           </div>
           <h1 className="text-[clamp(1.4rem,5vw,2.5rem)] font-normal m-0 mb-1 tracking-[4px] title-glow">
             {title}
@@ -270,7 +270,7 @@ export default function App() {
         {/* --- Footer --- */}
         <footer className="border-t border-cyan-400/15 pt-6 mt-4 text-center text-[0.58rem] text-cyan-400/15 tracking-[2px] leading-9">
           <div>STANDUP GENERATOR IS NOT RESPONSIBLE FOR PERFORMANCE REVIEWS OR LAYOFFS</div>
-          <div>BUILT BY WENDER MEDIA — OUR STANDUPS ARE ALSO GENERATED</div>
+          <div>BUILT BY ARNOLD WENDER — OUR STANDUPS ARE ALSO GENERATED</div>
           <div className="text-red-500/15 mt-1">HTTP 418 — YOUR STANDUP IS A TEAPOT</div>
         </footer>
       </div>
