@@ -52,6 +52,10 @@ npm run build
 npm run preview
 ```
 
+## Contributing
+
+Contributions are welcome! Check out [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to get involved.
+
 ## License
 
-MIT
+This project is licensed under the [MIT License](LICENSE).
