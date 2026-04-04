@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes scandown {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px #00ffff; }
+  50% { box-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
+}
+
+.title-glow {
+  text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+}
+
+.crt-scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.012) 2px,
+    rgba(0, 255, 255, 0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 50;
+}
+
+.crt-vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.7) 100%);
+  pointer-events: none;
+  z-index: 49;
+}
+
+.crt-beam {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 255, 255, 0.06);
+  animation: scandown 7s linear infinite;
+  z-index: 48;
+  pointer-events: none;
+}
+
+.standup-card {
+  animation: fadein 0.4s ease;
+}
+
+.generate-btn {
+  animation: pulse-glow 2s infinite;
+  transition: all 0.2s;
+}
+
+.generate-btn:hover {
+  background: #00ffff !important;
+  color: #000 !important;
+}
+
+.cbtn:hover {
+  background: rgba(0, 255, 255, 0.13) !important;
+}
