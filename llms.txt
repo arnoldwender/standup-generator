@@ -1,0 +1,47 @@
+# Standup Generator
+
+> Satirical standup meeting note generator with retro CRT terminal aesthetic.
+
+## What This Project Is
+
+Standup Generator is a frontend-only React web application that generates humorous, randomized standup meeting notes. It satirizes corporate agile culture with a retro CRT terminal visual style. Users click a button to generate a fake standup update (yesterday, today, blockers, mood), then copy it to their clipboard.
+
+## Tech Stack
+
+- React 18 with TypeScript (strict mode)
+- Vite 5 (build tool and dev server)
+- Tailwind CSS 3 (utility-first styling)
+- Lucide React (icon library, minimally used)
+- ESLint 9 with typescript-eslint (linting)
+- No backend, no database, no API calls
+- @supabase/supabase-js is a dependency but is not used
+
+## Repository Structure
+
+- src/App.tsx — Main application component with generation logic
+- src/components/CrtOverlay.tsx — CRT scanline, vignette, and beam visual effects
+- src/components/StandupCard.tsx — Reusable card for standup sections (yesterday, today, blockers)
+- src/components/StandupOutput.tsx — Output display with copy-to-clipboard and regenerate
+- src/data/standup-data.ts — All standup phrases (15 each for yesterday, today, blockers) and 5 moods
+- src/utils/glitch.ts — Text glitch effect and generic random picker utility
+- src/index.css — Tailwind directives and custom keyframe animations
+- src/main.tsx — React DOM entry point
+
+## Key Design Decisions
+
+- Pure frontend app with no server dependencies
+- All standup content is hardcoded (not fetched from an API)
+- CRT visual effects are CSS-only (scanlines, vignette, animated beam)
+- Title text has a glitch animation that runs every 3.5 seconds
+- Clipboard API is used for copy functionality
+- Color scheme: cyan (#00ffff) primary, green (#00ff41) secondary, red (#ff0000) tertiary on black
+
+## Development
+
+```
+npm install        # Install dependencies
+npm run dev        # Dev server at localhost:5173
+npm run build      # Production build
+npm run typecheck  # Type checking
+npm run lint       # Linting
+```
