@@ -1,0 +1,22 @@
+# Standup Generator
+
+> Generate fake standup meeting updates that sound convincingly productive.
+
+## Tech Stack
+- React 18, TypeScript, Vite, Tailwind CSS
+- Framer Motion, canvas-confetti, html2canvas, Lucide React
+
+## Key Files
+- src/App.tsx — main application entry
+- src/components/ — UI components (generator, bingo board, calendar, achievements)
+- src/hooks/ — custom React hooks
+- src/data/ — role templates, buzzword pools, achievement definitions
+- src/utils/ — text generation utilities
+
+## Features
+- Buzzword density slider, 6 roles, standup bingo, speedrun mode
+- Copy-to-Slack, calendar widget, 12 achievements, shareable cards
+
+## URLs
+- Live: https://standup-generator.netlify.app
+- Repo: https://github.com/arnoldwender/standup-generator
