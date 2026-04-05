@@ -9,6 +9,10 @@
 ## Key Files
 - src/App.tsx — main application entry
 - src/components/ — UI components (generator, bingo board, calendar, achievements)
+- src/components/JiraBoard.tsx — Draggable Jira-style kanban board
+- src/components/ExcuseScore.tsx — Lighthouse-style excuse quality gauges
+- src/components/FakeChangelog.tsx — Fake changelog
+- src/components/CliMode.tsx — CLI mode interface
 - src/hooks/ — custom React hooks
 - src/data/ — role templates, buzzword pools, achievement definitions
 - src/utils/ — text generation utilities
@@ -16,6 +20,10 @@
 ## Features
 - Buzzword density slider, 6 roles, standup bingo, speedrun mode
 - Copy-to-Slack, calendar widget, 12 achievements, shareable cards
+- Jira Board (draggable kanban)
+- Excuse Quality Score (Lighthouse gauges)
+- Fake Changelog
+- Pro Tier
 
 ## URLs
 - Live: https://standup-generator.netlify.app
