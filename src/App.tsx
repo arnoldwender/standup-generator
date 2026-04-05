@@ -23,6 +23,9 @@ import CalendarWidget from './components/CalendarWidget';
 import AchievementToast from './components/AchievementToast';
 import AchievementPanel from './components/AchievementPanel';
 import EasterEgg from './components/EasterEgg';
+import JiraBoard from './components/JiraBoard';
+import ExcuseScore from './components/ExcuseScore';
+import FakeChangelog from './components/FakeChangelog';
 
 const BASE_TITLE = 'STANDUP GENERATOR';
 
@@ -238,6 +241,15 @@ export default function App() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* --- Jira Board — pixel-perfect kanban simulation --- */}
+        <JiraBoard />
+
+        {/* --- Excuse Quality Score — Lighthouse-style believability gauge --- */}
+        <ExcuseScore standupText={standupText} />
+
+        {/* --- Fake Changelog + Pro Tier --- */}
+        <FakeChangelog />
 
         {/* --- Bingo toggle --- */}
         <div className="mt-6 mb-2 text-center">
