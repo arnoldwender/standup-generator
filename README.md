@@ -18,6 +18,10 @@ Built by [Arnold Wender](https://arnoldwender.com)
 - Calendar widget to schedule your fictional productivity
 - 12 unlockable achievements for the most dedicated meeting survivors
 - Shareable standup cards with screenshot export
+- Jira Board — draggable kanban board of your fictional tasks across sprints
+- Excuse Quality Score — Lighthouse-style SVG gauges rating the believability of your standup
+- Fake Changelog — version history of the generator's most corporate updates
+- Pro Tier — premium excuse generation for enterprise-grade meeting survival
 
 ## Tech Stack
 
