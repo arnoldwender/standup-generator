@@ -5,7 +5,7 @@
    ======================================== */
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { glitchText } from './utils/glitch';
 import { generateStandup } from './data/standup-data';
@@ -210,37 +210,34 @@ export default function App() {
         {/* --- Easter eggs --- */}
         <EasterEgg sessionCount={sessionCount} show={sessionCount > 0} />
 
-        {/* --- Standup output --- */}
-        <AnimatePresence mode="wait">
-          {generated ? (
-            <motion.div
-              key={`standup-${sessionCount}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <StandupOutput
-                result={generated}
-                onRegenerate={generate}
-                onShare={handleShare}
-                onCopy={handleCopy}
-              />
-            </motion.div>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-8 text-cyan-400/15 text-[0.72rem] tracking-[3px]"
-            >
-              <div className="text-4xl mb-4">{'\u{1F4CB}'}</div>
-              <div>PRESS GENERATE TO SOUND PRODUCTIVE</div>
-              <div className="text-[0.6rem] mt-2 text-cyan-400/[0.07]">
-                NO ACTUAL WORK REQUIRED
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* --- Standup output — no AnimatePresence to prevent black screen on phase transitions --- */}
+        {generated ? (
+          <motion.div
+            key={`standup-${sessionCount}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <StandupOutput
+              result={generated}
+              onRegenerate={generate}
+              onShare={handleShare}
+              onCopy={handleCopy}
+            />
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-8 text-cyan-400/15 text-[0.72rem] tracking-[3px]"
+          >
+            <div className="text-4xl mb-4">{'\u{1F4CB}'}</div>
+            <div>PRESS GENERATE TO SOUND PRODUCTIVE</div>
+            <div className="text-[0.6rem] mt-2 text-cyan-400/[0.07]">
+              NO ACTUAL WORK REQUIRED
+            </div>
+          </motion.div>
+        )}
 
         {/* --- Jira Board — pixel-perfect kanban simulation --- */}
         <JiraBoard />
@@ -262,19 +259,16 @@ export default function App() {
           </button>
         </div>
 
-        {/* --- Bingo card --- */}
-        <AnimatePresence>
-          {showBingo && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="overflow-hidden"
-            >
-              <BingoCard standupText={standupText} onBingo={handleBingo} />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* --- Bingo card — no AnimatePresence to prevent render blocking --- */}
+        {showBingo && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            className="overflow-hidden"
+          >
+            <BingoCard standupText={standupText} onBingo={handleBingo} />
+          </motion.div>
+        )}
 
         {/* --- Achievements --- */}
         <AchievementPanel unlocked={unlocked} />
