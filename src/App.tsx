@@ -62,11 +62,6 @@ export default function App() {
     return () => clearInterval(iv);
   }, []);
 
-  /* --- Persist total count --- */
-  useEffect(() => {
-    localStorage.setItem('standup-total-count', String(totalCount));
-  }, [totalCount]);
-
   /* --- Friday easter egg check --- */
   const isFriday = new Date().getDay() === 5;
   const isMonday = new Date().getDay() === 1;
@@ -84,6 +79,12 @@ export default function App() {
     const newTotal = totalCount + 1;
     const newSession = sessionCount + 1;
     setTotalCount(newTotal);
+    /* Persist only after a user action, never on page load (§ 25 TDDDG) */
+    try {
+      localStorage.setItem('standup-total-count', String(newTotal));
+    } catch {
+      /* localStorage unavailable */
+    }
     setSessionCount(newSession);
     increment();
 
@@ -278,6 +279,11 @@ export default function App() {
           <div>STANDUP GENERATOR IS NOT RESPONSIBLE FOR PERFORMANCE REVIEWS OR LAYOFFS</div>
           <div>BUILT BY ARNOLD WENDER — OUR STANDUPS ARE ALSO GENERATED</div>
           <div className="text-red-500/15 mt-1">HTTP 418 — YOUR STANDUP IS A TEAPOT</div>
+          {/* Legal links stay readable, unlike the ghost lines above (DDG § 5) */}
+          <nav aria-label="Rechtliches" className="flex justify-center gap-6 mt-2 text-xs tracking-[1px] leading-normal">
+            <a href="/impressum/" className="inline-block min-h-[44px] py-3 text-cyan-400 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400">Impressum</a>
+            <a href="/datenschutz/" className="inline-block min-h-[44px] py-3 text-cyan-400 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400">Datenschutz</a>
+          </nav>
         </footer>
       </div>
     </div>

@@ -3,7 +3,7 @@
    achievements in localStorage
    ======================================== */
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { ACHIEVEMENTS } from '../data/standup-data';
 import type { Achievement } from '../data/standup-data';
 
@@ -22,19 +22,18 @@ export function useAchievements() {
   /* Recently unlocked — for showing notification */
   const [recentUnlock, setRecentUnlock] = useState<Achievement | null>(null);
 
-  /* Persist to localStorage whenever unlocked changes */
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify([...unlocked]));
-  }, [unlocked]);
-
+  /* Persist only when an achievement is unlocked — an effect on `unlocked` would write on page load (§ 25 TDDDG) */
   const unlock = useCallback(
     (id: string) => {
       if (unlocked.has(id)) return;
-      setUnlocked((prev) => {
-        const next = new Set(prev);
-        next.add(id);
-        return next;
-      });
+      const next = new Set(unlocked);
+      next.add(id);
+      setUnlocked(next);
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...next]));
+      } catch {
+        /* localStorage unavailable */
+      }
       const achievement = ACHIEVEMENTS.find((a) => a.id === id);
       if (achievement) {
         setRecentUnlock(achievement);
