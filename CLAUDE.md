@@ -4,8 +4,9 @@
 
 - Humour web app by Arnold Wender (React 18 + Vite + Tailwind + Framer Motion). Public repository; the licence in
   `LICENSE` is deliberate.
-- Live: <https://standup-generator.netlify.app>. The Netlify site is **not** connected to GitHub: a merge does not
-  deploy. Deploy by hand: `npm run build && netlify deploy --prod --dir=dist`.
+- Live: <https://standup-generator.netlify.app>. The Netlify site builds from `main` on GitHub (`npm run build` →
+  `dist/`): a merge deploys. Static files that must be served (legal pages, `llms.txt`) live in `public/`; Vite copies
+  only that directory into `dist/`.
 
 ## Rules
 
